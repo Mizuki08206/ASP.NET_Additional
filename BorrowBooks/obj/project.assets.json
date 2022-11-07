@@ -9835,6 +9835,8 @@
       "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore >= 6.0.8",
       "Microsoft.AspNetCore.Identity.EntityFrameworkCore >= 6.0.8",
       "Microsoft.AspNetCore.Identity.UI >= 6.0.8",
+      "Microsoft.EntityFrameworkCore >= 6.0.10",
+      "Microsoft.EntityFrameworkCore.Design >= 6.0.10",
       "Microsoft.EntityFrameworkCore.SqlServer >= 6.0.10",
       "Microsoft.EntityFrameworkCore.Tools >= 6.0.10",
       "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 6.0.10"
@@ -9846,11 +9848,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\m-otomo\\source\\repos\\BorrowBooks\\BorrowBooks\\BorrowBooks.csproj",
+      "projectUniqueName": "C:\\Users\\m-otomo\\Source\\Repos\\ASP.NET_Additional\\BorrowBooks\\BorrowBooks.csproj",
       "projectName": "BorrowBooks",
-      "projectPath": "C:\\Users\\m-otomo\\source\\repos\\BorrowBooks\\BorrowBooks\\BorrowBooks.csproj",
+      "projectPath": "C:\\Users\\m-otomo\\Source\\Repos\\ASP.NET_Additional\\BorrowBooks\\BorrowBooks.csproj",
       "packagesPath": "C:\\Users\\m-otomo\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\m-otomo\\source\\repos\\BorrowBooks\\BorrowBooks\\obj\\",
+      "outputPath": "C:\\Users\\m-otomo\\Source\\Repos\\ASP.NET_Additional\\BorrowBooks\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\m-otomo\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -9890,6 +9892,16 @@
           "Microsoft.AspNetCore.Identity.UI": {
             "target": "Package",
             "version": "[6.0.8, )"
+          },
+          "Microsoft.EntityFrameworkCore": {
+            "target": "Package",
+            "version": "[6.0.10, )"
+          },
+          "Microsoft.EntityFrameworkCore.Design": {
+            "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+            "suppressParent": "All",
+            "target": "Package",
+            "version": "[6.0.10, )"
           },
           "Microsoft.EntityFrameworkCore.SqlServer": {
             "target": "Package",
