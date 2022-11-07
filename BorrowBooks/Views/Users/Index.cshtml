@@ -37,7 +37,10 @@
                 @Html.DisplayFor(modelItem => item.Mail_Address)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Password)
+                @for(int i = 0; i < item.Password.Length; i++)
+                {
+                    <span>●</span>
+                }
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Phone)
