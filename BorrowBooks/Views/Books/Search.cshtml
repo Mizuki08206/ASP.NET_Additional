@@ -2,14 +2,21 @@
 @using Microsoft.AspNetCore.Identity
 @inject SignInManager<IdentityUser> SignInManager
 @inject UserManager<IdentityUser> UserManager
+
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Search";
 }
 
-<h1>Index</h1>
+<h1>Search</h1>
+
+<h5>
+    @ViewData["keyword"]
+    で検索しています。。
+</h5>
 @if (SignInManager.IsSignedIn(User))
 {
-    @if(User.Identity.Name.Equals("administrator@outlook.jp")){
+    @if (User.Identity.Name.Equals("administrator@outlook.jp"))
+    {
         <a asp-action="Create">Create New</a>
         <form action="/Books/Search" align="right">
             キーワード：
@@ -68,7 +75,8 @@
         </table>
     }
 }
-else{
+else
+{
     <form action="/Books/Search" align="right">
         キーワード：
         <input type="text" name="keyword" />
@@ -119,18 +127,4 @@ else{
         </tbody>
     </table>
 }
-
-<div align="center">
-    @if(ViewBag.Prev!=null){
-        <a asp-action="Index" asp-route-page="@ViewBag.Prev">prev</a>
-    }
-    else{
-        <span>prev</span>
-    }
-    @if(ViewBag.Next!=null){
-        <a asp-action="Index" asp-route-page="@ViewBag.Next">next</a>
-    }
-    else{
-        <span>next</span>
-    }
-</div>
+<a href="/Books/Index">戻る</a>

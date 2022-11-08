@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using BorrowBooks.Data;
 using BorrowBooks.Models;
+using Microsoft.AspNetCore.Razor.Language.Extensions;
+using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace BorrowBooks.Controllers
 {
@@ -20,9 +22,32 @@ namespace BorrowBooks.Controllers
         }
 
         // GET: Books
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(int? page)
         {
-              return View(await _context.Book.ToListAsync());
+            if (page == null)
+            {
+                page = 0;
+            }
+            int max = 10;
+
+            var books = _context.Book
+                .Skip(max * page.Value).Take(max);
+
+            if(page.Value > 0)
+            {
+                ViewData["prev"] = page.Value - 1;
+            }
+            if (books.Count() >= max)
+            {
+                ViewData["next"] = page.Value + 1;
+                //次ページがあるか調べる
+                if (_context.Book.Skip(max * (page.Value + 1)).Take(max) .Count() == 0)
+                {
+                    ViewData["next"] = null;
+                }
+
+            }
+              return View(await books.ToListAsync());
         }
 
         // GET: Books/Details/5
@@ -47,6 +72,41 @@ namespace BorrowBooks.Controllers
         public IActionResult Create()
         {
             return View();
+        }
+        
+        public async Task<IActionResult> Search(string keyword,int? page)
+        {
+            ViewData["keyword"] = keyword;
+
+            if (page == null)
+            {
+                page = 0;
+            }
+            int max = 10;
+            var books = from book in _context.Book select book;
+            if (keyword != null)
+            {
+                books = books.Where(b => b.Title.Contains(keyword));
+            }
+
+            books = books
+                .Skip(max * page.Value).Take(max);
+
+            if (page.Value > 0)
+            {
+                ViewData["prev"] = page.Value - 1;
+            }
+            if (books.Count() >= max)
+            {
+                ViewData["next"] = page.Value + 1;
+                //次ページがあるか調べる
+                if (_context.Book.Skip(max * (page.Value + 1)).Take(max).Count() == 0)
+                {
+                    ViewData["next"] = null;
+                }
+
+            }
+            return View(await books.ToListAsync());
         }
 
         // POST: Books/Create
