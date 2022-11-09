@@ -13,67 +13,64 @@
     @ViewData["keyword"]
     で検索しています。。
 </h5>
-@if (SignInManager.IsSignedIn(User))
+@if (SignInManager.IsSignedIn(User) && User.Identity.Name.Equals("administrator@outlook.jp"))
 {
-    @if (User.Identity.Name.Equals("administrator@outlook.jp"))
-    {
-        <a asp-action="Create">Create New</a>
-        <form action="/Books/Search" align="right">
-            キーワード：
-            <input type="text" name="keyword" />
-            <input type="submit" value="検索" />
-        </form>
-        <table class="table">
-            <thead>
+    <a asp-action="Create">Create New</a>
+    <form action="/Books/Search" align="right">
+        キーワード：
+        <input type="text" name="keyword" />
+        <input type="submit" value="検索" />
+    </form>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Title)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Author)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Genre)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Lend_User_Id)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Lend_Date)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
                 <tr>
-                    <th>
-                        @Html.DisplayNameFor(model => model.Title)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.Author)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.Genre)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.Lend_User_Id)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.Lend_Date)
-                    </th>
-                    <th></th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach (var item in Model)
-                {
-                    <tr>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Title)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Author)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Genre)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Lend_User_Id)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Lend_Date)
-                        </td>
-                        <td>
-                            <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                            <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                            <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-                        </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Title)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Author)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Genre)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Lend_User_Id)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Lend_Date)
+                    </td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                        <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                        <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                    </td>
 
-                    </tr>
-                }
-            </tbody>
-        </table>
-    }
+                </tr>
+            }
+        </tbody>
+    </table>
 }
 else
 {

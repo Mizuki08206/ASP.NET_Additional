@@ -86,7 +86,7 @@ namespace BorrowBooks.Controllers
             var books = from book in _context.Book select book;
             if (keyword != null)
             {
-                books = books.Where(b => b.Title.Contains(keyword));
+                books = books.Where(b => b.Title.Contains(keyword)||b.Genre.Contains(keyword));
             }
 
             books = books
@@ -107,6 +107,22 @@ namespace BorrowBooks.Controllers
 
             }
             return View(await books.ToListAsync());
+        }
+        public async Task<IActionResult> Lend(string title,string user_name)
+        {
+            ViewData["title"] = title;
+
+            var query=from book in _context.Book where book.Title.Contains(title) select book;
+            DateTime dt = new DateTime();
+
+
+
+            foreach(var book in query)
+            {
+                book.Lend_User_Id = "";
+            }
+
+            return View();
         }
 
         // POST: Books/Create

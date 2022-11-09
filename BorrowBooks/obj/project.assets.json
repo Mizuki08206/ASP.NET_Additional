@@ -10293,19 +10293,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\ia\\.nuget\\packages\\": {}
+    "C:\\Users\\mizuk\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\ia\\Source\\Repos\\ASP.NET_Additional\\BorrowBooks\\BorrowBooks.csproj",
+      "projectUniqueName": "C:\\Users\\mizuk\\Source\\Repos\\ASP.NET_Additional\\BorrowBooks\\BorrowBooks.csproj",
       "projectName": "BorrowBooks",
-      "projectPath": "C:\\Users\\ia\\Source\\Repos\\ASP.NET_Additional\\BorrowBooks\\BorrowBooks.csproj",
-      "packagesPath": "C:\\Users\\ia\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\ia\\Source\\Repos\\ASP.NET_Additional\\BorrowBooks\\obj\\",
+      "projectPath": "C:\\Users\\mizuk\\Source\\Repos\\ASP.NET_Additional\\BorrowBooks\\BorrowBooks.csproj",
+      "packagesPath": "C:\\Users\\mizuk\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\mizuk\\Source\\Repos\\ASP.NET_Additional\\BorrowBooks\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\ia\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\mizuk\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -10387,7 +10387,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.401\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.402\\RuntimeIdentifierGraph.json"
       }
     }
   }
