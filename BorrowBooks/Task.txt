@@ -16,3 +16,9 @@ WILL
 別
 カラムを増やした際に、テーブル（すでに登録されているデータ）を削除しないとエラーになるらしいから検証する
 自動生成テーブルとユーザー定義テーブルのForeign Key設定をやってみる
+
+
+2022/11/10タスク
+・BooksControllerのLendメソッドが途中
+・IndexからAspNetUsersテーブルに追加したカラム（User_Id）をパラメータとして送ることができなかったため、UserNameをBooksControllerで受け取り、
+副問い合わせを使用して、BookテーブルのLend_User_Idに追加したカラム（User_Id）を格納する
