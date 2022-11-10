@@ -13,7 +13,7 @@
     @ViewData["keyword"]
     で検索しています。。
 </h5>
-@if (SignInManager.IsSignedIn(User) && User.Identity.Name.Equals("administrator@outlook.jp"))
+@if (SignInManager.IsSignedIn(User))
 {
     <a asp-action="Create">Create New</a>
     <form action="/Books/Search" align="right">
@@ -21,6 +21,7 @@
         <input type="text" name="keyword" />
         <input type="submit" value="検索" />
     </form>
+
     <table class="table">
         <thead>
             <tr>
@@ -39,7 +40,12 @@
                 <th>
                     @Html.DisplayNameFor(model => model.Lend_Date)
                 </th>
-                <th></th>
+                <th>
+
+                </th>
+                <th>
+
+                </th>
             </tr>
         </thead>
         <tbody>
@@ -61,17 +67,32 @@
                     <td>
                         @Html.DisplayFor(modelItem => item.Lend_Date)
                     </td>
-                    <td>
-                        <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                        <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                        <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-                    </td>
 
+                    @if (User.Identity.Name.Equals("administrator@outlook.jp"))
+                    {//パスワードは「Admin-123456789」
+                        <td>
+                            <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                            <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                            <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                        </td>
+                    }
+                    <td>
+                        @if (item.Lend_User_Id == null)
+                        {
+                            <a href="/Books/Lend?title=@item.Title&user_name=@User.Identity.Name">借りる</a>
+                        }
+                        else if (item.Lend_User_Id.Equals(User.Identity.Name))
+                        {
+                            <a href="/Books/Return?title=@item.Title&user_name=@User.Identity.Name">返却</a>
+                        }
+                    </td>
                 </tr>
             }
         </tbody>
     </table>
+
 }
+
 else
 {
     <form action="/Books/Search" align="right">
@@ -97,7 +118,9 @@ else
                 <th>
                     @Html.DisplayNameFor(model => model.Lend_Date)
                 </th>
-                <th></th>
+                <th>
+
+                </th>
             </tr>
         </thead>
         <tbody>
@@ -124,4 +147,23 @@ else
         </tbody>
     </table>
 }
+
+<div align="center">
+    @if (ViewBag.Prev != null)
+    {
+        <a asp-action="Index" asp-route-page="@ViewBag.Prev">prev</a>
+    }
+    else
+    {
+        <span>prev</span>
+    }
+    @if (ViewBag.Next != null)
+    {
+        <a asp-action="Index" asp-route-page="@ViewBag.Next">next</a>
+    }
+    else
+    {
+        <span>next</span>
+    }
+</div>
 <a href="/Books/Index">戻る</a>

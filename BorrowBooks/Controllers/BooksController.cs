@@ -9,6 +9,7 @@ using BorrowBooks.Data;
 using BorrowBooks.Models;
 using Microsoft.AspNetCore.Razor.Language.Extensions;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using System.Text.RegularExpressions;
 
 namespace BorrowBooks.Controllers
 {
@@ -112,18 +113,49 @@ namespace BorrowBooks.Controllers
         {
             ViewData["title"] = title;
 
-            var query=from book in _context.Book where book.Title.Contains(title) select book;
-            DateTime dt = new DateTime();
+            var query=from book in _context.Book where book.Title.Equals(title) select book;
 
+            //@の前を取り出す
+            var matches = Regex.Matches(user_name, @"(\w{1,})@(outlook.jp|gmail.com|powersolutinos.co.jp)");
+            Match match = matches[0];
 
-
-            //foreach(var book in query)
-            //{
-            //    book.Lend_User_Id = "";
-            //}
-
+            foreach (var book in query)
+            {
+                book.Lend_User_Id = match.Groups[1].Value;
+                book.Lend_Date = DateTime.Now;
+            }
+            try
+            {
+                _context.SaveChanges();
+            }
+            catch(Exception e)
+            {
+                Console.WriteLine(e);
+            }
             return View();
         }
+        public async Task<IActionResult> Return(string title, string user_name)
+        {
+            ViewData["title"] = title;
+
+            var query = from book in _context.Book where book.Title.Equals(title) select book;
+
+            foreach (var book in query)
+            {
+                book.Lend_User_Id = null;
+                book.Lend_Date = null;
+            }
+            try
+            {
+                _context.SaveChanges();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+            }
+            return View();
+        }
+
 
         // POST: Books/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.

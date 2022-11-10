@@ -73,6 +73,10 @@
                             {
                                 <a href="/Books/Lend?title=@item.Title&user_name=@User.Identity.Name">借りる</a>
                             }
+                            else if(User.Identity.Name.Contains(item.Lend_User_Id))
+                            {
+                                <a href="/Books/Return?title=@item.Title&user_name=@User.Identity.Name">返却</a>
+                            }
                         </td>
                     </tr>
                 }

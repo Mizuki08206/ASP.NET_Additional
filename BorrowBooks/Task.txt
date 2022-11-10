@@ -22,3 +22,8 @@ WILL
 ・BooksControllerのLendメソッドが途中
 ・IndexからAspNetUsersテーブルに追加したカラム（User_Id）をパラメータとして送ることができなかったため、UserNameをBooksControllerで受け取り、
 副問い合わせを使用して、BookテーブルのLend_User_Idに追加したカラム（User_Id）を格納する
+A.おそらく副問い合わせは可能だが、コード内でテーブルの定義が見つからないため、外部キーの設定は難しいと思われる
+
+
+問題点
+・@の前だけ取り出してLend_User_Idに入れているため、「a@outlook.jp」「a@gmail.com」は同じ人とみなして貸出と返却ができてしまう

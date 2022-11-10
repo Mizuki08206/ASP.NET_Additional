@@ -14,7 +14,7 @@ namespace BorrowBooks.Models
         [Display(Name = "ジャンル")]
         public string Genre { get; set; }
         [Display(Name = "貸出者ID")]
-        public int? Lend_User_Id { get; set; }
+        public string? Lend_User_Id { get; set; }
         [Display(Name = "貸出日")]
         public DateTime? Lend_Date { get; set; }
     }
