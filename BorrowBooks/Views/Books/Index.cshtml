@@ -34,7 +34,10 @@
                         @Html.DisplayNameFor(model => model.Lend_Date)
                     </th>
                     <th>
-                        借りる
+
+                    </th>
+                    <th>
+                        
                     </th>
                 </tr>
             </thead>
@@ -58,7 +61,7 @@
                             @Html.DisplayFor(modelItem => item.Lend_Date)
                         </td>
 
-                    @if (User.Identity.Name.Equals("administrator@outlook.jp")){
+                    @if (User.Identity.Name.Equals("administrator@outlook.jp")){//パスワードは「Admin-123456789」
                         <td>
                             <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
                             <a asp-action="Details" asp-route-id="@item.Id">Details</a> |

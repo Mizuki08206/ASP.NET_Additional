@@ -117,10 +117,10 @@ namespace BorrowBooks.Controllers
 
 
 
-            foreach(var book in query)
-            {
-                book.Lend_User_Id = "";
-            }
+            //foreach(var book in query)
+            //{
+            //    book.Lend_User_Id = "";
+            //}
 
             return View();
         }
