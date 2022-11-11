@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\ia\\Source\\Repos\\BorrowBooks\\BorrowBooks\\BorrowBooks.csproj": {}
+    "C:\\Users\\m-otomo\\Source\\Repos\\BorrowBooks\\BorrowBooks\\BorrowBooks.csproj": {}
   },
   "projects": {
-    "C:\\Users\\ia\\Source\\Repos\\BorrowBooks\\BorrowBooks\\BorrowBooks.csproj": {
+    "C:\\Users\\m-otomo\\Source\\Repos\\BorrowBooks\\BorrowBooks\\BorrowBooks.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ia\\Source\\Repos\\BorrowBooks\\BorrowBooks\\BorrowBooks.csproj",
+        "projectUniqueName": "C:\\Users\\m-otomo\\Source\\Repos\\BorrowBooks\\BorrowBooks\\BorrowBooks.csproj",
         "projectName": "BorrowBooks",
-        "projectPath": "C:\\Users\\ia\\Source\\Repos\\BorrowBooks\\BorrowBooks\\BorrowBooks.csproj",
-        "packagesPath": "C:\\Users\\ia\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ia\\Source\\Repos\\BorrowBooks\\BorrowBooks\\obj\\",
+        "projectPath": "C:\\Users\\m-otomo\\Source\\Repos\\BorrowBooks\\BorrowBooks\\BorrowBooks.csproj",
+        "packagesPath": "C:\\Users\\m-otomo\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\m-otomo\\Source\\Repos\\BorrowBooks\\BorrowBooks\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\ia\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\m-otomo\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -83,8 +83,7 @@
             "net47",
             "net471",
             "net472",
-            "net48",
-            "net481"
+            "net48"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -96,7 +95,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.401\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.303\\RuntimeIdentifierGraph.json"
         }
       }
     }
